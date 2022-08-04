@@ -15,7 +15,8 @@ namespace ModuloAuteticacao.Classes
               //se não existe conexão.
                 if (_conn == null)
                 { // chave do if
-                    _conn = new SqlConnection(@"Server = Lab206_7\SQLEXPRESS; Database = ProjetoEstoquev; Uid = sa; Pwd = teste*123;");
+                    _conn = new SqlConnection(@"Server = Lab206_6; Database = ProjetoEstoquev; Uid = sa; Pwd = teste*123;");
+                   // _conn = new SqlConnection(@"Server = Lab206_6; Database = ProjetoEstoquev; Uid = sa; Pwd = teste*123;"); conexão de casa
                 } // fecha chave do if
                   //retorna a conexão
                 return _conn;

@@ -10,6 +10,7 @@ namespace ModuloAuteticacao.Classes
 {
     public class NivelDAO
     {
+
         public string Inserir(string nome)
         {
             //abrindo a conexão
@@ -50,10 +51,28 @@ namespace ModuloAuteticacao.Classes
             dataTable.Load(reader);
             Conexao.MinhaInstancia.Close();
             return dataTable;
-
         }
+        //sobrecarga de método - mesmo nome
+        //overload
+        public DataTable PesquisarPorNome(string nome)
+        {
+                Conexao.MinhaInstancia.Open();
+                SqlCommand comando = Conexao.MinhaInstancia.CreateCommand();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = ("SELECT * from Nivel where Nome=@Nome;");
+                comando.Parameters.AddWithValue("@Nome", nome);
+                DataTable dataTable = new DataTable();
+                SqlDataReader reader = comando.ExecuteReader();
+                dataTable.Load(reader);
+                Conexao.MinhaInstancia.Close();
+
+                return dataTable;
+
+            }
+        
         public string Deletar()
         {
+           
             return "Você vai deletar";
         }
     
